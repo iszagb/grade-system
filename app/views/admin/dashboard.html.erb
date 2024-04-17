@@ -1,0 +1,19 @@
+
+    <h2 class="pb-2 border-bottom">Admin Dashboard</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="feature col">
+        <h3 class="fs-2">Create new user</h3>
+        <p>Create a new user and assign it a role.</p>
+        <%= link_to "New user", new_user_admin_path %>
+      </div>
+      <div class="feature col">
+        <h3 class="fs-2">Students List</h3>
+        <p>Check all the registered students in the system</p>
+        <%= link_to "List of Students", students_path %>
+      </div>
+      <div class="feature col">
+        <h3 class="fs-2">Courses List</h3>
+        <p>View all created courses in the system.</p>
+        <%= link_to "List of Courses", courses_path %>
+      </div>
+    </div>

@@ -1,0 +1,23 @@
+<h1>Grades</h1>
+
+<% @student_courses.each do |st| %>
+  <h2>Course: <%= st.course.name %></h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Score</th>
+        <th>Quarter</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% st.grades.each do |grade| %>
+        <tr>
+          <td><%= grade.score %></td>
+          <td><%= grade.quarter %></td>
+          <td><%= grade.status %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

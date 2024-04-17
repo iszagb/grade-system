@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Students</h1>
+
+<div id="students">
+  <ul class="list-group">
+  <% @students.each do |student| %>
+    <li class="list-group-item">
+    <%= render student %>
+    <p>
+      <%= link_to "Show this student", student %>
+    </p>
+    </li>
+  <% end %>
+  </ul>
+</div>
+
+<%= link_to "New student", new_user_admin_path, class: 'btn btn-primary mt-4' %>

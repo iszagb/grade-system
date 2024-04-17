@@ -1,0 +1,14 @@
+<h1>Assign Student to <%= @course.name %></h1>
+
+<%= form_with(url: assign_student_course_path, method: :get) do |form| %>
+  <%= form.text_field :search, placeholder: "Search by student name" %>
+  <%= form.submit "Search" %>
+<% end %>
+
+<ul>
+  <% @searched_students.each do |student| %>
+    <% unless student.nil? %>
+      <li><%= link_to student.first_name, assign_student_to_course_courses_path(course_id: @course.id, student_id: student.id), data: { turbo_method: :post } %></li>
+    <% end %>
+  <% end %>
+</ul>

@@ -1,0 +1,8 @@
+<h1><%= @student.first_name %> Courses List</h1>
+
+<% @student.courses.each do |course| %>
+  <p><%= course.name %></p>
+  <p><%= course.year %></p>
+<% end %>
+
+<%= link_to "Back", dashboard_students_path %>

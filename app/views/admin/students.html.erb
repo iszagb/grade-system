@@ -1,0 +1,21 @@
+<h1>Student list</h1>
+
+<div id="students">
+  <ul class="list-group">
+  <li class="list-group-item">An item</li>
+  <% @students.each do |student| %>
+    <li class="list-group-item">
+    <%= render student %>
+    <p>
+      <%= link_to "Show this student", student %>
+    </p>
+    </li>
+  <% end %>
+  </ul>
+  <% @students.each do |student| %>
+    <%= render student %>
+    <p>
+      <%= link_to "Show this student", student %>
+    </p>
+  <% end %>
+</div>

@@ -1,0 +1,13 @@
+<h1>Students list for <%= @course.name %></h1>
+
+<div id="courses_students">
+  <ul>
+    <% @course.students.each do |student| %>
+      <% unless student.nil? %>
+        <li><%=student.first_name + ' ' + student.last_name%> <%= link_to "Grade", grade_student_course_path(course_id: @course, student_id: student) %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+
+<%= link_to "Back to this course", @course %>

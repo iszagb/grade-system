@@ -1,0 +1,4 @@
+<h1>Student Dashboard</h1>
+<p>Welcome <%=@student.full_name%>!</p>
+<%= link_to "My courses", courses_student_path(current_user.student) %>
+<%= link_to "My grades", grades_student_path(current_user.student) %>

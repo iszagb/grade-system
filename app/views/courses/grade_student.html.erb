@@ -1,0 +1,19 @@
+<h1>Grade <%= @student.first_name %> for <%= @course.name %>
+
+<%= form_with(model: [@course, @student, @grade], url: assign_student_grade_courses_path, method: :post) do |form| %>
+  <%= form.hidden_field :course_id, value: @course.id %>
+  <%= form.hidden_field :student_id, value: @student.id %>
+  <div>
+    <%= form.label :score %>
+    <%= form.number_field :score %>
+  </div>
+
+  <div>
+    <%= form.label :quarter %>
+    <%= form.select :quarter, Grade.quarters.keys %>
+  </div>
+
+  <%= form.submit %>
+<% end %>
+
+<%= link_to "Back to this course", @course %>

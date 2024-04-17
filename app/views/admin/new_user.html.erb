@@ -1,0 +1,50 @@
+<%= form_for(@user, url: admin_users_path, html: { class: 'form-horizontal' }) do |f| %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= fields_for :student do |student_form| %>
+    <div class="field">
+      <%= student_form.label :first_name, class: 'control-label' %>
+      <%= student_form.text_field :first_name, autofocus: true, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= student_form.label :last_name, class: 'control-label' %>
+      <%= student_form.text_field :last_name, autofocus: true, class: 'form-control' %>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :email, class: 'control-label' %>
+    <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, class: 'control-label' %>
+    <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, class: 'control-label' %>
+    <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :role, class: 'control-label' %>
+    <%= f.select :role, User.roles.keys.map { |role| [role.titleize, role] }, {}, { class: 'form-control' } %>
+  </div>
+
+  <div class="actions mt-4">
+    <%= f.submit 'Create User', class: 'btn btn-primary' %>
+    <%= link_to "Cancel", admin_dashboard_path, class: 'btn btn-danger' %>
+  </div>
+
+<% end %>
